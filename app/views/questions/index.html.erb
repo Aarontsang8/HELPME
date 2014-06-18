@@ -1,0 +1,109 @@
+  <div x-ng-app="question-app">
+  	<div x-ng-controller="QuestionCtrl">
+  			<div ng-show="errors" class="alert alert-danger alert-dismissable">
+	          <button type="button" class="close" ng-click="clearErrors();" aria-hidden="true">&times;</button>
+	          <ul>
+	            <li ng-repeat="(attribute, error) in errors">
+	              {{attribute}} {{error.join(", ")}}
+	            </li>
+	          </ul>
+        </div>
+
+
+  		<h1>HELP ME</h1>
+
+<input type="submit" value="Update Question!" class="button" data-reveal-id="myModal">
+  		<div id ="myModal" class= "reveal-modal sample_modal" data-reveal>
+	  			<form ng-submit="saveQuestion();" class="form-group">
+	  			<label class="modaltext" for="name">Name:</label>
+	  			<input ng-model="newQuestion.name" name="name" class="form-control" id="nameinput">
+	  			<label class="modaltext"for="topic">Topic:</label>
+	  			<input ng-model="newQuestion.topic" name="topic" class="form-control" id="topicinput">
+	  			<label class="modaltext" for="note">Note:</label>
+	  			<textarea ng-model="newQuestion.note" name="note" class="form-control" placeholder ="In less than 30 words, what's the gist of your question?"></textarea>
+	  			<label class="modaltext">Instruct0rs:</label> 
+	  			 <select ng-model="newQuestion.instructor", name ="instructor" id="selectbar"> 
+	  			 	<option value="Anyone">Anyone</option>
+	  				<option value="Lorin">Lorin</option>
+	  				<option value="Hannah">Hannah</option>
+	  				<option value="Mer">Mer</option>
+	  				<option value="Bita">Bita</option>
+	  				<option value="Iggy">Iggy</option>
+	  				<option value="Evan">Evan</option>
+	  				<option value="Jen">Jen</option>
+	  				<option value="Jonny">Jonny</option>
+	  				<option value="Marc">Marc</option>
+	  			</select>
+	  			<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+	  			<input type="submit" value="Add a Question!" class="button" ng-click = "addAlert()">
+  			</form>
+  		</div>
+
+
+
+
+  		  <div class="form-group">
+  			<input ng-model="searchQuestion" type="text" class="form-control" placeholder="Search for a Name/Topic or Question!">
+  		</div>
+
+         	 
+        <table class="table table-bordered">
+          <tbody>
+            <tr ng-repeat="question in questions | orderBy:'created_at' | filter:searchQuestion">
+             <td  class = "tableitem"> 
+             	<div ng-hide="question.editing">
+                <span id ="firstnamedisplay">{{question.name}}</span> <br> Asked about {{question.topic}} <br> {{question.note}} <br> At: {{ question.created_at| date:'mediumTime'}} <br> HELP ME <span id = "instructordisplay">{{question.instructor}}!</span>
+                </div>
+                <form ng-show="question.editing" ng-submit="updateQuestion(question);" class="form-group">
+                  <label for="name">Name:</label>
+                  <input ng-model="question.name" name="name" class="form-control">
+                  <label for="topic">Topic:</label>
+                  <input ng-model="question.topic" name="topic" class="form-control">
+                  <label for="note">Note:</label>
+                  <input ng-model="question.note" name="note" class="form-control">
+                  <label for="instructor">Instructor:</label>
+    			 <select  ng-model="question.instructor", id="editselectbar"> 
+    			 	<option value="Anyone">Anyone</option>
+	  				<option value="Lorin">Lorin</option>
+	  				<option value="Hannah">Hannah</option>
+	  				<option value="Mer">Mer</option>
+	  				<option value="Bita">Bita</option>
+	  				<option value="Iggy">Iggy</option>
+	  				<option value="Evan">Evan</option>
+	  				<option value="Jen">Jen</option>
+	  				<option value="Jonny">Jonny</option>
+	  				<option value="Marc">Marc</option>
+  				</select>
+  				<br>
+                  <input type="submit" value="Update Question!" class="btn btn-primary">
+                </form>
+
+                 <div ng-show="question.details">
+                  <dl>
+                     <dt class="formtitles">Name:</dt>
+                     <dd id ="red">{{question.name}}</dd>
+                     <dt class="formtitles">Topic:</dt>
+                     <dd>{{question.topic}}</dd>
+                     <dt class="formtitles">Note:</dt>
+                     <dd>{{question.note}}</dd>
+                     <dt class="formtitles">Asked at:</dt>
+                     <dd>{{ question.created_at| date:'medium'}}</dd>
+                     <dt class="formtitles">Instructor Requested:</dt>
+                     <dd>{{ question.instructor }}</dd>
+                  </dl>
+                </div>
+              </td>
+         <!--      <td  class = "tableitem"><span ng-hide="question.details"><a ng-click="showQuestion(question);" class="btn btn-info">show</a></span> -->
+ <!--              <span ng-show="question.details"><a ng-click="hideQuestion(question);" class="btn btn-info">hide</a></span>
+              </td> -->
+
+              <td class = "tableitem"><a ng-click="editQuestion(question);" class="btn btn-info">edit</a></td>
+              <td class = "tableitem"><a ng-click="deleteQuestion(question);" class="btn btn-info">delete</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+</div>
+</div>
+
+
