@@ -52,7 +52,7 @@
             <tr ng-repeat="question in questions | orderBy:'created_at' | filter:searchQuestion">
              <td  class = "tableitem"> 
              	<div ng-hide="question.editing">
-                <span id ="firstnamedisplay">{{question.name}}</span> <br> Asked about {{question.topic}} <br> {{question.note}} <br> At: {{ question.created_at| date:'mediumTime'}} <br> HELP ME <span id = "instructordisplay">{{question.instructor}}!</span>
+                <span id ="firstnamedisplay">{{question.name}}</span> <br> Asked about {{question.topic}} <br> {{question.note}} <br> At: {{ question.created_at| date:'mediumTime'}} <br>
                 </div>
 
 
