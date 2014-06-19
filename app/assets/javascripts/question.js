@@ -21,7 +21,7 @@ QuestionApp.controller('QuestionCtrl', ['Question', '$scope', '$timeout', functi
   $scope.questions= [];
   $scope.alerts= [];
   $scope.newQuestion = new Question();
- 
+
 
 
   Question.query(function(questions) {
@@ -31,9 +31,7 @@ QuestionApp.controller('QuestionCtrl', ['Question', '$scope', '$timeout', functi
 
    $scope.addAlert = function(index) {
       $scope.alerts.push({msg: "Thanks! An instructor will get back to you ASAP!!"});
-      $timeout(function(){
-      $scope.alerts.splice(index, 1);
-      },1500)
+ 
     }
 
     $scope.closeAlert = function(index) {
@@ -41,7 +39,8 @@ QuestionApp.controller('QuestionCtrl', ['Question', '$scope', '$timeout', functi
   }
 
 
-    $scope.saveQuestion = function () {
+    $scope.saveQuestion = function (event) {
+      event.preventDefault();
       $scope.newQuestion.$save(function(question) {
         $scope.questions.push(question)
         $scope.newQuestion = new Question();
