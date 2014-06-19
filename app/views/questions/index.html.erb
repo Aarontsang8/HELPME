@@ -20,7 +20,7 @@
 	  			<input ng-model="newQuestion.topic" name="topic" class="form-control" id="topicinput">
 	  			<label class="modaltext" for="note">Note:</label>
 	  			<textarea ng-model="newQuestion.note" name="note" class="form-control" placeholder ="In less than 30 words, what's the gist of your question?"></textarea>
-	  			<label class="modaltext">Instruct0rs:</label> 
+	  			<!-- <label class="modaltext">Instruct0rs:</label>  -->
 	  	<!-- 		 <select ng-model="newQuestion.instructor", name ="instructor" id="selectbar"> 
 	  			 	<option value="Anyone">Anyone</option>
 	  				<option value="Lorin">Lorin</option>
@@ -33,7 +33,7 @@
 	  				<option value="Jonny">Jonny</option>
 	  				<option value="Marc">Marc</option>
 	  			</select> -->
-	  			<input type = "submit">
+	  			<input type = "submit" class = "button">
 	  			<!-- <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert> -->
 				<a class="close-reveal-modal">&#215;</a>
   			</form>
@@ -64,7 +64,7 @@
 	                  <input ng-model="question.topic" name="topic" class="form-control">
 	                  <label for="note">Note:</label>
 	                  <input ng-model="question.note" name="note" class="form-control">
-	                  <label for="instructor">Instructor:</label>
+	                <!--   <label for="instructor">Instructor:</label>
 	    			 <select  ng-model="question.instructor", id="editselectbar"> 
 	    			 	<option value="Anyone">Anyone</option>
 		  				<option value="Lorin">Lorin</option>
@@ -76,9 +76,10 @@
 		  				<option value="Jen">Jen</option>
 		  				<option value="Jonny">Jonny</option>
 		  				<option value="Marc">Marc</option>
-	  				</select>
+	  				</select> -->
 	  				<br>
-                  <input type="submit" value="Update Question!" class="btn btn-primary">
+	  				<br>
+                  <input type="submit" value="Update Question!" class="button">
                 </form>
                 <!-- End of Edit Form -->
 
