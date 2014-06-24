@@ -11,8 +11,8 @@
   		<h1>Queue It Up!!</h1>
 
 	<input type= "button" class="button" value="Add Question" data-reveal-id="myModal" />
-  		<div id ="myModal" class= "reveal-modal" data-reveal>
 
+  		<div id ="myModal" class= "reveal-modal" data-reveal>
 	  		<form ng-submit="saveQuestion($event)" class="form-group">
 				<label class="modaltext" for="name">Name:</label>
 	  			<input ng-model="newQuestion.name" name="name" class="form-control" id="nameinput">
@@ -33,9 +33,9 @@
 	  				<option value="Jonny">Jonny</option>
 	  				<option value="Marc">Marc</option>
 	  			</select> -->
-	  			<input type = "submit" class = "button">
+
 	  			<!-- <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert> -->
-				<a class="close-reveal-modal">&#215;</a>
+				<button type="submit">asdf</button>
   			</form>
   		</div>
 
@@ -51,10 +51,9 @@
           <tbody>
             <tr ng-repeat="question in questions | orderBy:'created_at' | filter:searchQuestion">
              <td  class = "tableitem"> 
-             	<div ng-hide="question.editing">
+             	
                 <span id ="firstnamedisplay">{{question.name}}</span> <br> Asked about {{question.topic}} <br> {{question.note}} <br> At: {{ question.created_at| date:'mediumTime'}} <br>
-                </div>
-
+                
 
 				<!-- Edit Form -->
                 <form ng-show="question.editing" ng-submit="updateQuestion(question);" class="form-group">
@@ -64,19 +63,6 @@
 	                  <input ng-model="question.topic" name="topic" class="form-control">
 	                  <label for="note">Note:</label>
 	                  <input ng-model="question.note" name="note" class="form-control">
-	                <!--   <label for="instructor">Instructor:</label>
-	    			 <select  ng-model="question.instructor", id="editselectbar"> 
-	    			 	<option value="Anyone">Anyone</option>
-		  				<option value="Lorin">Lorin</option>
-		  				<option value="Hannah">Hannah</option>
-		  				<option value="Mer">Mer</option>
-		  				<option value="Bita">Bita</option>
-		  				<option value="Iggy">Iggy</option>
-		  				<option value="Evan">Evan</option>
-		  				<option value="Jen">Jen</option>
-		  				<option value="Jonny">Jonny</option>
-		  				<option value="Marc">Marc</option>
-	  				</select> -->
 	  				<br>
 	  				<br>
                   <input type="submit" value="Update Question!" class="button">

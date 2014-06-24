@@ -1,6 +1,7 @@
 Teachq::Application.routes.draw do
 
 
+  get "welcome/index"
   root 'questions#index'
 
   resources :questions
