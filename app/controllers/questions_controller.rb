@@ -69,7 +69,7 @@ def set_question
 end
 
 def question_params
-	params.require(:question).permit(:name, :topic, :note, :instructor)
+	params.require(:question).permit(:name, :topic, :note, :instructor, :id, :created_at)
 end
 
 

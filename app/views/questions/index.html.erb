@@ -20,8 +20,8 @@
 	  			<input ng-model="newQuestion.topic" name="topic" class="form-control" id="topicinput">
 	  			<label class="modaltext" for="note">Note:</label>
 	  			<textarea ng-model="newQuestion.note" name="note" class="form-control" placeholder ="In less than 30 words, what's the gist of your question?"></textarea>
-	  			<!-- <label class="modaltext">Instruct0rs:</label>  -->
-	  	<!-- 		 <select ng-model="newQuestion.instructor", name ="instructor" id="selectbar"> 
+	  			<label class="modaltext">Need a specific Instructor? (Based on Availability)</label> 
+	  			 <select ng-model="newQuestion.instructor", name ="instructor" id="selectbar"> 
 	  			 	<option value="Anyone">Anyone</option>
 	  				<option value="Lorin">Lorin</option>
 	  				<option value="Hannah">Hannah</option>
@@ -32,7 +32,7 @@
 	  				<option value="Jen">Jen</option>
 	  				<option value="Jonny">Jonny</option>
 	  				<option value="Marc">Marc</option>
-	  			</select> -->
+	  			</select>
 
 	  			<!-- <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert> -->
 				<button type="submit">Add it to the Queue!</button>
@@ -52,7 +52,7 @@
             <tr ng-repeat="question in questions | orderBy:'created_at' | filter:searchQuestion">
              <td  class = "tableitem"> 
              	
-                <span id ="firstnamedisplay">{{question.name}}</span> <br> Asked about {{question.topic}} <br> {{question.note}} <br> At: {{ question.created_at| date:'mediumTime'}} <br>
+                <p><span id ="firstnamedisplay">{{question.name}}</span> <br> Asked about {{question.topic}} <br> {{question.note}} <br> At: {{ question.created_at| date:'mediumTime'}} <br> and is looking for <span id ="firstnamedisplay">{{question.instructor}}</span></p>
                 
 
 				<!-- Edit Form -->
@@ -63,6 +63,19 @@
 	                  <input ng-model="question.topic" name="topic" class="form-control">
 	                  <label for="note">Note:</label>
 	                  <input ng-model="question.note" name="note" class="form-control">
+					<label class="modaltext">Instruct0rs:</label> 
+		  			 	<select ng-model="question.instructor" name ="instructor" id="editselectbar"> 
+		  			 	<option value="Anyone">Anyone</option>
+		  				<option value="Lorin">Lorin</option>
+		  				<option value="Hannah">Hannah</option>
+		  				<option value="Mer">Mer</option>
+		  				<option value="Bita">Bita</option>
+		  				<option value="Iggy">Iggy</option>
+		  				<option value="Evan">Evan</option>
+		  				<option value="Jen">Jen</option>
+		  				<option value="Jonny">Jonny</option>
+		  				<option value="Marc">Marc</option>
+	  				</select>
 	  				<br>
 	  				<br>
                   <input type="submit" value="Update Question!" class="button">
@@ -87,7 +100,6 @@
          <!--      <td  class = "tableitem"><span ng-hide="question.details"><a ng-click="showQuestion(question);" class="btn btn-info">show</a></span> -->
  <!--              <span ng-show="question.details"><a ng-click="hideQuestion(question);" class="btn btn-info">hide</a></span>
               </td> -->
-
               <td class = "tableitem"><a ng-click="editQuestion(question);" class="btn btn-info">edit</a></td>
               <td class = "tableitem"><a ng-click="deleteQuestion(question);" class="btn btn-info">delete</a></td>
             </tr>
