@@ -53,6 +53,7 @@
              <td  class = "tableitem"> 
              	
                 <p><span id ="firstnamedisplay">{{question.name}}</span> <br> Asked about {{question.topic}} <br> {{question.note}} <br> At: {{ question.created_at| date:'mediumTime'}} <br> and is looking for <span id ="firstnamedisplay">{{question.instructor}}</span></p>
+                Updated At:{{ question.updated_at| date:'mediumTime'}}
                 
 
 				<!-- Edit Form -->
